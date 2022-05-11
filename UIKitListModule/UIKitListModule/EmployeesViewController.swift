@@ -1,5 +1,5 @@
 //
-//  EmployeesTableViewController.swift
+//  EmployeesViewController.swift
 //  UIKitListModule
 //
 //  Created by Darya Kuliashova on 10/05/2022.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-final class EmployeesTableViewController: UIViewController {
-    @IBOutlet private weak var tableView: UITableView!
+final class EmployeesViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var toolBar: UIToolbar!
     @IBOutlet weak var deleteRowButton: UIBarButtonItem!
 
@@ -47,7 +47,7 @@ final class EmployeesTableViewController: UIViewController {
     }
 }
 
-extension EmployeesTableViewController: UITableViewDataSource {
+extension EmployeesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employeeList.count
     }
@@ -63,7 +63,7 @@ extension EmployeesTableViewController: UITableViewDataSource {
     }
 }
 
-extension EmployeesTableViewController: UITableViewDelegate {
+extension EmployeesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexForCell = indexPath.row
     }
