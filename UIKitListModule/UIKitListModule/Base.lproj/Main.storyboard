@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Employees Table View Controller-->
+        <!--Employees View Controller-->
         <scene sceneID="EGR-aV-QZI">
             <objects>
-                <viewController storyboardIdentifier="EmployeesTableViewController" id="s9x-xI-S9G" customClass="EmployeesTableViewController" customModule="UIKitListModule" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployeesViewController" id="s9x-xI-S9G" customClass="EmployeesViewController" customModule="UIKitListModule" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WvC-74-Jut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
