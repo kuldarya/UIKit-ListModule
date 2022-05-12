@@ -19,6 +19,7 @@
 		0B6C77F0282AAA85003286BA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C77EF282AAA85003286BA /* Employee.swift */; };
 		0B6C77F2282AABDE003286BA /* EmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C77F1282AABDE003286BA /* EmployeeCell.swift */; };
 		0B6C77F7282BAD4C003286BA /* EmployeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C77F6282BAD4C003286BA /* EmployeeDetailViewController.swift */; };
+		0B6C77FB282D20DF003286BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6C77FA282D20DF003286BA /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0B6C77EF282AAA85003286BA /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		0B6C77F1282AABDE003286BA /* EmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeCell.swift; sourceTree = "<group>"; };
 		0B6C77F6282BAD4C003286BA /* EmployeeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewController.swift; sourceTree = "<group>"; };
+		0B6C77FA282D20DF003286BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				0B6C77F6282BAD4C003286BA /* EmployeeDetailViewController.swift */,
 				0B6C77EE282AAA7B003286BA /* Model */,
 				0B6C77F3282AABEE003286BA /* Cell */,
+				0B6C77FA282D20DF003286BA /* Constants.swift */,
 				0B6C77C4282AA84A003286BA /* Main.storyboard */,
 				0B6C77C7282AA84C003286BA /* Assets.xcassets */,
 				0B6C77C9282AA84C003286BA /* LaunchScreen.storyboard */,
@@ -287,6 +290,7 @@
 				0B6C77C3282AA84A003286BA /* EmployeesViewController.swift in Sources */,
 				0B6C77F0282AAA85003286BA /* Employee.swift in Sources */,
 				0B6C77BF282AA84A003286BA /* AppDelegate.swift in Sources */,
+				0B6C77FB282D20DF003286BA /* Constants.swift in Sources */,
 				0B6C77C1282AA84A003286BA /* SceneDelegate.swift in Sources */,
 				0B6C77F7282BAD4C003286BA /* EmployeeDetailViewController.swift in Sources */,
 			);
