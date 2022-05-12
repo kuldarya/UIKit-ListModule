@@ -10,7 +10,8 @@ import UIKit
 final class EmployeesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet private weak var toolBar: UIToolbar!
-    @IBOutlet weak var deleteRowButton: UIBarButtonItem!
+    @IBOutlet private weak var deleteRowButton: UIBarButtonItem!
+    @IBOutlet private weak var addRowButton: UIBarButtonItem!
 
     private var employeeList = [Employee]()
     private var newEmployee: String = ""
@@ -27,7 +28,9 @@ final class EmployeesViewController: UIViewController {
             Employee(occupation: "Project Manager")
         ]
 
-        navigationController?.navigationBar.topItem?.title = "Employees"
+        deleteRowButton.accessibilityIdentifier = Constants.deleteRowAccessibilityLabel
+        addRowButton.accessibilityIdentifier = Constants.addRowAccessibilityLabel
+        navigationController?.navigationBar.topItem?.title = Constants.navbarTitle
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -53,7 +56,7 @@ extension EmployeesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell", for: indexPath) as? EmployeeCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.employeeCellIdentifier, for: indexPath) as? EmployeeCell else {
             return UITableViewCell()
         }
         let employee = employeeList[indexPath.row]
