@@ -77,6 +77,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bjs-ZF-llC"/>
                     <connections>
+                        <outlet property="addRowButton" destination="klK-Xe-5kK" id="t3s-Px-hya"/>
                         <outlet property="deleteRowButton" destination="mxn-rS-ciq" id="C5R-oP-fa3"/>
                         <outlet property="tableView" destination="PO9-jt-qQf" id="V3k-ij-Ie2"/>
                         <outlet property="toolBar" destination="xhZ-e5-9ZZ" id="2xt-gj-iAB"/>
@@ -115,6 +116,7 @@
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-T2-9SD">
                                 <rect key="frame" x="16" y="96" width="382" height="34"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Add Employee" label="Add Employee"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
