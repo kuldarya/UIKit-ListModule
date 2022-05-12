@@ -7,36 +7,92 @@
 
 import XCTest
 
-class UIKitListModuleUITests: XCTestCase {
+class UIKitListModuleUITests: XCTestCase, ViewScreenStarting, EmployeeListInteracting {
+    var employeeForTest = "Accountant"
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        configureStartup()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    override func tearDownWithError() throws { }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func test_TableViewRow_AddedOnButtonTap() {
         let app = XCUIApplication()
-        app.launch()
+        let initialTableRows = app.tables.children(matching: .cell).count
+        let add = XCUIApplication().buttons[Accessibility.View.AddButton]
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        add.tap()
+        createEntry(app: app, employee: employeeForTest)
+        let finalTableRows = app.tables.children(matching: .cell).count
+
+        XCTAssert(initialTableRows + 1 == finalTableRows)
     }
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    func test_TableViewRow_DeletedRowDoesntExist() {
+        let delete = XCUIApplication().buttons[Accessibility.View.DeleteButton]
+
+        delete.tap()
+
+        /// `waitForExistence` gives some time to wait and see if the element comes into existence
+        /// If the specified row doesn't exist anymore, it returns `false`
+        XCTAssertFalse(employee(titled: employeeForTest).waitForExistence(timeout: 1))
+    }
+
+    // MARK: - Private
+
+    private func createEntry(app: XCUIApplication, employee: String) {
+        let textfield = app.textFields["Add Employee"]
+        textfield.tap()
+        textfield.typeText(employeeForTest)
+        app.navigationBars["Add Employee"].buttons["Done"].tap()
+    }
+}
+
+// MARK: - Enum
+
+enum Accessibility {
+    enum View {
+        static let DeleteButton = "Delete Row"
+        static let AddButton = "Add Row"
+    }
+}
+
+// MARK: - Protocols
+
+protocol EmployeeListInteracting {
+    func employee(titled: String) -> XCUIElement
+}
+
+protocol ViewScreenStarting: StartupConfigurable, EmployeeListInteracting {
+    var employeeForTest: String { get }
+    func startViewScreen()
+}
+
+protocol StartupConfigurable {
+    func configureStartup()
+}
+
+// MARK: - Extensions
+
+extension EmployeeListInteracting {
+    func employee(titled title: String) -> XCUIElement {
+        return XCUIApplication().cells
+            .containing(.staticText, identifier: title)
+            .firstMatch
+    }
+}
+
+extension ViewScreenStarting {
+    func startViewScreen() {
+        /// As the test starts with the app closed in UI tests, launch the app first
+        XCUIApplication().launch()
+        employee(titled: employeeForTest).tap()
+    }
+
+    func configureStartup() {
+        startViewScreen()
     }
 }
